@@ -61,4 +61,6 @@ yarn lint
 
 ## Icon credit
 
+Icon made by [Freepik](http://www.freepik.com/) from [www.flaticon.com](http://www.flaticon.com).
+
 https://www.flaticon.com/free-icon/webcam-video-call_70572#term=camera&page=5&position=78
