@@ -1,5 +1,5 @@
-import { loadRoomList, saveRoomList } from "./roomList";
-import { loadApplyToAllMeetingUrls, saveApplyToAllMeetingUrls } from "./applyToAllMeetingUrls";
+import { loadApplyToAllMeetingUrls, saveApplyToAllMeetingUrls } from './applyToAllMeetingUrls';
+import { loadRoomList, saveRoomList } from './roomList';
 
 loadRoomList();
 loadApplyToAllMeetingUrls();
@@ -7,7 +7,7 @@ loadApplyToAllMeetingUrls();
 document.getElementById('save-options').addEventListener('click', e => {
   Promise.all([
     saveRoomList(),
-    saveApplyToAllMeetingUrls()
+    saveApplyToAllMeetingUrls(),
   ])
     .then(() => {
       const n = document.createElement('strong');
@@ -15,7 +15,7 @@ document.getElementById('save-options').addEventListener('click', e => {
       (e.target as HTMLButtonElement).parentNode.appendChild(n);
       setTimeout(() => n.remove(), 1000);
     })
-    .catch(e => {
+    .catch(() => {
       const n = document.createElement('strong');
       n.innerText = 'Error!';
       (e.target as HTMLButtonElement).parentNode.appendChild(n);

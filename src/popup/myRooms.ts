@@ -1,8 +1,8 @@
-import * as store from '../utils/store';
-import { navigateToRoom } from '../utils/redirect';
 import { buildAppearInUrl } from '../utils/appear.in';
+import { navigateToRoom } from '../utils/redirect';
+import * as store from '../utils/store';
 
-const loadRoomList = async (ul) => {
+const loadRoomList = async (ul: HTMLUListElement): Promise<void> => {
   const data = await store.get(['roomList']);
   if (data.roomList && data.roomList.length > 0) {
     ul.innerHTML = '';
@@ -17,8 +17,8 @@ const loadRoomList = async (ul) => {
   }
 };
 
-const followRoomListLink = async e => {
-  if (e.target.tagName !== 'A') return;
+const followRoomListLink = async (e): Promise<string | void> => {
+  if (e.target.tagName !== 'A') { return; }
   e.preventDefault();
   const uri = e.target.getAttribute('href');
   await navigateToRoom(uri);

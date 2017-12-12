@@ -1,3 +1,8 @@
 import * as store from './store';
-export const getSettings = async () =>
+
+export interface ISettings {
+  [key: string]: any;
+}
+
+export const getSettings = async (): Promise<ISettings> =>
   await store.get(['audio', 'video', 'applyToAllMeetingUrls']);

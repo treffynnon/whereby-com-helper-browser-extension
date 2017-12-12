@@ -11,9 +11,8 @@ export const loadApplyToAllMeetingUrls = () => {
       }
       getInput().checked = applyToAllMeetingUrls;
     });
-}
+};
 
 export const saveApplyToAllMeetingUrls = () => {
-  return store.set({ applyToAllMeetingUrls: getInput().checked })
-    .then(() => {});
+  return store.set({ applyToAllMeetingUrls: getInput().checked });
 };

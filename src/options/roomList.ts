@@ -1,7 +1,7 @@
+import { appearInUriToRoomName, isAppearInUri } from '../utils/appear.in';
 import * as list from '../utils/list';
-import { isAppearInUri, appearInUriToRoomName } from '../utils/appear.in';
-import { isAbsoluteUri } from '../utils/uri';
 import * as store from '../utils/store';
+import { isAbsoluteUri } from '../utils/uri';
 
 const myRoomsFieldId = 'my-rooms';
 
@@ -15,34 +15,35 @@ const cleanRoom = (room: string): string => {
   return r;
 };
 
-const roomTransducer = (acc: Array<string>, x: string): Array<string> => {
+const roomTransducer = (acc: string[], x: string): string[] => {
   const cx = cleanRoom(x);
-  if (!cx || acc.includes(cx)) return acc;
+  if (!cx || acc.includes(cx)) { return acc; }
   return list.push(acc, cx);
 };
 
-export const cleanRoomList = (roomList: string): Array<string> =>
+export const cleanRoomList = (roomList: string): string[] =>
   roomList
     .trim()
     .split('\n')
     .reduce(roomTransducer, [])
     .sort();
 
-export const getRoomList = (): Array<string> =>
+export const getRoomList = (): string[] =>
   cleanRoomList((document.getElementById(myRoomsFieldId) as HTMLTextAreaElement).value);
 
-export const setRoomList = (roomList: Array<string>): void => {
+export const setRoomList = (roomList: string[]): string[] => {
   (document.getElementById(myRoomsFieldId) as HTMLTextAreaElement)
     .value = roomList.join('\n');
+  return roomList;
 };
 
-export const saveRoomList = () => {
+export const saveRoomList = (): Promise<string[]> => {
   const roomList = getRoomList();
   return store.set({ roomList })
     .then(() => setRoomList(roomList));
 };
 
-export const loadRoomList = () => {
+export const loadRoomList = (): Promise<string[]> => {
   return store.get(['roomList'])
     .then(({ roomList }) => setRoomList(roomList));
 };

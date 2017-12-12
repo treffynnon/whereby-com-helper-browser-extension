@@ -1,7 +1,7 @@
-export const unique = (arr: Array<any>): Array<any> =>
+export const unique = (arr: any[]): any[] =>
   Array.from(new Set(arr));
 
-export const push = (arr: Array<any>, val: any): Array<any> => {
+export const push = (arr: any[], val: any): any[] => {
   arr.push(val);
   return arr;
 };

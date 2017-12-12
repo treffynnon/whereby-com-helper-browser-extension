@@ -1,6 +1,6 @@
-import * as store from '../utils/store';
-import { getSettings } from '../utils/settings';
 import { navigateToRoom } from '../utils/redirect';
+import { getSettings } from '../utils/settings';
+import * as store from '../utils/store';
 
 import './myRooms';
 
@@ -9,7 +9,7 @@ version.classList.add('version-number');
 version.innerText = chrome.runtime.getManifest().version;
 document.getElementById('container').appendChild(version);
 
-const update = async e => {
+const update = async (e): Promise<void> => {
   const urlParam = e.target.getAttribute('data-url-param');
   if (urlParam) {
     const setting = {};
@@ -23,7 +23,7 @@ const settingsInputs = settingsDiv.getElementsByTagName('input');
 
 getSettings()
   .then(existingSettings => {
-    Array.from(settingsInputs).forEach(c => {
+    Array.from(settingsInputs).forEach((c: HTMLInputElement): void => {
       c.checked = existingSettings[c.getAttribute('data-url-param')];
       c.addEventListener('click', update);
     });
