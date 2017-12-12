@@ -8,6 +8,11 @@ This browser extension assists in the following ways:
 * Apply those defaults to links that you open/follow automatically
 * Keep a list of links to your favourite meeting rooms
 
+## In the Google Chromestore
+
+Install the extension from the Google Chrome store:
+https://chrome.google.com/webstore/detail/appearin-meeting-room-hel/kamcahcpkdbdhphbnhblmcgemhbhbohm
+
 ## Building the extension
 
 Install all the dependencies first:

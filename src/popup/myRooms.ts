@@ -4,15 +4,17 @@ import { buildAppearInUrl } from '../utils/appear.in';
 
 const loadRoomList = async (ul) => {
   const data = await store.get(['roomList']);
-  ul.innerHTML = '';
-  data.roomList.forEach(x => {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = buildAppearInUrl(x);
-    a.innerText = x;
-    li.appendChild(a);
-    ul.appendChild(li);
-  });
+  if (data.roomList && data.roomList.length > 0) {
+    ul.innerHTML = '';
+    data.roomList.forEach(x => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = buildAppearInUrl(x);
+      a.innerText = x;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  }
 };
 
 const followRoomListLink = async e => {
