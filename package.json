@@ -2,7 +2,7 @@
   "name": "appear-in-meeting-room-helper-browser-extension",
   "repository": "git@github.com:treffynnon/appear-in-helper-browser-extension.git",
   "author": "Simon Holywell <treffynnon@php.net>",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Auto enter appear.in meetings muted and cam off (configurable).",
   "license": "MIT",
   "engines": {
