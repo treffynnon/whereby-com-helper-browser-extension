@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Appear.in meeting room helper</title>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        color: #333;
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+
+      a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      a:hover {
+        border-bottom: 1px solid #ccc;
+      }
+
+      #container {
+        justify-content: space-between;
+        min-width: 300px;
+      }
+      
+      .version-number {
+        text-align: center;
+        display: block;
+        border-top: 1px solid #ccc;
+        margin-top: 10px;
+      }
+
+      #my-rooms p {
+        margin-bottom: 5px;
+      }
+
+      #my-rooms-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #my-rooms-list li {
+        margin-bottom: 4px;
+        padding: 0 5px;
+        border: 3px solid white;
+      }
+
+      #my-rooms-list li:hover {
+        border: 3px solid rgb(242, 58, 215);
+        border-radius: 6px;
+      }
+
+      #my-rooms-list li a:hover {
+        border: none;
+      }
+
+      .additional-configuration-options {
+        text-align: right;
+        font-size: smaller;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Appear.in meeting room helper</h1>
+    <div id="container">
+      <div id="default-room-settings">
+        <p>
+          By default appear.in starts the camera and sound when you enter a room.
+          You can choose the defaults you prefer below.
+        </p>
+        <div>
+          <label for="audio-checkbox">
+            <input type="checkbox" name="audio" id="audio-checkbox" data-url-param="audio">
+            Enter with audio off
+          </label>
+        </div>
+        <div>
+          <label for="video-checkbox">
+            <input type="checkbox" name="video" id="video-checkbox" data-url-param="video">
+            Enter with camera off
+          </label>
+        </div>
+      </div>
+      <div id="my-rooms">
+        <p>Your meeting rooms:</p>
+        <ul id="my-rooms-list">
+          <li>No rooms saved yet.</li>
+        </ul>
+      </div>
+      <div class="additional-configuration-options">
+        <a href="#" id="open-options-page">Additional configuration options</a>
+      </div>
+    </div>
+    <script src="../js/vendor.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

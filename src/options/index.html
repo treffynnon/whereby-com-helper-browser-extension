@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <title>Appear.in meeting room helper options</title>
+  <style>
+    textarea {
+      width: 100%;
+      height: 150px;
+    }
+    .option-group {
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    .option-group-title {
+      font-size: larger;
+    }
+    .option-hint {
+      font-size: smaller;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <fieldset class="option-group">
+      <legend class="option-group-title">Global options</legend>
+      <div class="option option-checkbox">
+        <input type="checkbox" name="apply-to-followed-urls" id="apply-to-followed-urls" />
+        <label for="apply-to-followed-urls">
+          Apply default settings to all meeting room links I open
+          (even those outside my favourite rooms list).
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="option-group">
+      <legend class="option-group-title">My rooms</legend>
+      <div class="option">
+        <label for="my-rooms">
+          Import/export rooms
+        </label>
+        <div>
+          <textarea name="my-rooms" id="my-rooms"></textarea>
+          <div class="option-hint">List each room name or URL on a new line.</div>
+        </div>
+      </div>
+    </fieldset>
+    <button id="save-options">Save</button>
+  </div>
+  <script src="../js/vendor.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

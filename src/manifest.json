@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Appear.in meeting room helper",
+  "description": "",
+  "version": "0.0.0",
+  "icons": {
+    "16": "icons/19.png",
+    "48": "icons/96.png",
+    "128": "icons/96.png"
+  },
+  "browser_action": {
+    "default_icon": "icons/19.png",
+    "default_popup": "popup/index.html",
+    "default_title": "Appear.in meeting room helper"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://appear.in/*"],
+      "js": ["js/vendor.js", "js/index.js"]
+    }
+  ],
+  "options_ui": {
+    "page": "options/index.html",
+    "chrome_style": true
+  },
+  "permissions": [
+    "storage"
+  ]  
+}
