@@ -4,7 +4,7 @@
   "author": "Simon Holywell <treffynnon@php.net>",
   "version": "1.0.1",
   "description": "Auto enter appear.in meetings muted and cam off (configurable).",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "engines": {
     "node": ">=8.9.1",
     "npm": ">=5.5.1",
