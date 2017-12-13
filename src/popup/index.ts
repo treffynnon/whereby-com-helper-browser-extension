@@ -29,5 +29,8 @@ getSettings()
     });
   });
 
-document.getElementById('open-options-page')
-  .addEventListener('click', () => chrome.runtime.openOptionsPage());
+Array.from(document.getElementsByClassName('open-options-page'))
+  .forEach(x => x.addEventListener('click', e => {
+    e.preventDefault();
+    chrome.runtime.openOptionsPage();
+  }));

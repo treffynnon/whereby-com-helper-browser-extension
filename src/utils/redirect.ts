@@ -1,8 +1,7 @@
 import { getSettings } from './settings';
 
-export const navigateToRoom = async (uri: string): Promise<string | void> => {
+export const navigateToRoom = async (goTo: URL): Promise<string | void> => {
   const settings = await getSettings();
-  const goTo = new URL(uri);
   goTo.searchParams.delete('audio');
   goTo.searchParams.delete('video');
   if (settings.audio) { goTo.searchParams.append('audio', 'off'); }

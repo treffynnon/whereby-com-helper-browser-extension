@@ -2,7 +2,7 @@ import { buildAppearInUrl } from '../utils/appear.in';
 import { navigateToRoom } from '../utils/redirect';
 import * as store from '../utils/store';
 
-const loadRoomList = async (ul: HTMLUListElement): Promise<void> => {
+const loadRoomList = async (ul: HTMLUListElement): Promise<HTMLUListElement> => {
   const data = await store.get(['roomList']);
   if (data.roomList && data.roomList.length > 0) {
     ul.innerHTML = '';
@@ -15,15 +15,19 @@ const loadRoomList = async (ul: HTMLUListElement): Promise<void> => {
       ul.appendChild(li);
     });
   }
+  return ul;
 };
 
 const followRoomListLink = async (e): Promise<string | void> => {
   if (e.target.tagName !== 'A') { return; }
-  e.preventDefault();
   const uri = e.target.getAttribute('href');
-  await navigateToRoom(uri);
+  if (uri !== '#') {
+    e.preventDefault();
+    return await navigateToRoom(new URL(uri));
+  }
+  return;
 };
 
-const roomList = document.getElementById('my-rooms-list');
+const roomList = (document.getElementById('my-rooms-list') as HTMLUListElement);
 loadRoomList(roomList)
   .then(() => roomList.addEventListener('click', followRoomListLink));

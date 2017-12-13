@@ -1,6 +1,6 @@
-# Appear.in meeting room helper browser extension
+# appear.in meeting room helper browser extension
 
-This browser extension assists in the following ways:
+This browser extension assists in the following ways in use with https://appear.in:
 
 * Allows you to configure defaults when entering a room
     * Camera off
@@ -8,9 +8,9 @@ This browser extension assists in the following ways:
 * Apply those defaults to links that you open/follow automatically
 * Keep a list of links to your favourite meeting rooms
 
-## In the Google Chromestore
+## In the Google Chrome webstore
 
-Install the extension from the Google Chrome store:
+Install the extension from the Google Chrome webstore:
 https://chrome.google.com/webstore/detail/appearin-meeting-room-hel/kamcahcpkdbdhphbnhblmcgemhbhbohm
 
 ## Building the extension
@@ -27,12 +27,12 @@ and then the extension can be built:
 yarn build
 ```
 
-This produces a compiled extension file with a name like `appear-in-meeting-room-helper-x.x.x.crx`.
+This produces a compiled extension file with a name like `appear.in-meeting-room-helper-x.x.x.crx`.
 
 ## Installing the extension
 
 Open your chrome browser and navigate to [chrome://extensions](chrome://extensions).
-Drag and drop the `appear-in-meeting-room-helper-x.x.x.crx` file onto the page and
+Drag and drop the `appear.in-meeting-room-helper-x.x.x.crx` file onto the page and
 accept the warning.
 
 ## Developing the extension

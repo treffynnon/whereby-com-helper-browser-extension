@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Appear.in meeting room helper",
+  "name": "appear.in meeting room helper",
   "description": "",
   "version": "0.0.0",
   "icons": {
@@ -15,7 +15,7 @@
   "browser_action": {
     "default_icon": "icons/19.png",
     "default_popup": "popup/index.html",
-    "default_title": "Appear.in meeting room helper"
+    "default_title": "appear.in meeting room helper"
   },
   "content_scripts": [
     {

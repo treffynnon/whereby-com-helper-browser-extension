@@ -8,6 +8,7 @@ const WebpackOnBuildPlugin = require('on-build-webpack');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const ZipPlugin = require('zip-webpack-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -34,13 +35,19 @@ module.exports = merge(common, {
         ].join(' ');
         try {
           await exec(command);
-          const dest = path.join(__dirname, `appear-in-meeting-room-helper-${process.env.npm_package_version}.crx`);
+          const dest = path.join(__dirname, `appear.in-meeting-room-helper-${process.env.npm_package_version}.crx`);
           await mv(path.join(__dirname, 'dist.crx'), dest);
           console.log(chalk.green(`Build complete: ${dest}`));
         } catch (e) {
           console.error(chalk.red(e.message));
         }
       }
+    }),
+    
+    // produce a zip for uploading to Chrome webstore
+    new ZipPlugin({
+      path: '../',
+      filename: path.join(__dirname, `appear.in-meeting-room-helper-${process.env.npm_package_version}.zip`),
     }),
   ],
 });
