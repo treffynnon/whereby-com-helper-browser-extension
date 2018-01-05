@@ -8,8 +8,7 @@ cache:
     - node_modules
     - ".awcache"
 before_install:
-  - openssl aes-256-cbc -K $encrypted_6b2bcd0551e1_key -iv $encrypted_6b2bcd0551e1_iv
-  -in key.pem.enc -out key.pem -d
+  - openssl aes-256-cbc -K $encrypted_6b2bcd0551e1_key -iv $encrypted_6b2bcd0551e1_iv -in key.pem.enc -out key.pem -d
   - ln -s $(which google-chrome-stable) /usr/bin/google-chrome
 install: yarn
 script: yarn build
