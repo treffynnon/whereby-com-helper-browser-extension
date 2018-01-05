@@ -1,0 +1,24 @@
+language: node_js
+nodejs:
+- 8
+addon:
+  chrome: stable
+cache:
+  directories:
+  - node_modules
+  - ".awcache"
+before_install:
+- openssl aes-256-cbc -K $encrypted_6b2bcd0551e1_key -iv $encrypted_6b2bcd0551e1_iv
+  -in key.pem.enc -out key.pem -d
+install: yarn
+script: yarn build
+deploy:
+  provider: releases
+  api_key:
+    secure: C3aCOJPoGGO8xF5lsyij0tUwxnTKv0CsSFMMsLS+0r1PlIDOpd3QE3HRCC+D1CK13ZdyC8BDHMLQ6w3a/9LlWBoNqASv5AfZKO8+y4lURVl+S2WW1obtuLvnpW9S5pD18yDI/s4MKDmJPJCbl7xQwXQ7fez8H4Sfan3VWRK8OoP6rSYWyuEVt8SzQprdh6gru5d0Lz4tExBj3gvCCU+2x+diZd1NoBcZjDrzWuANmkjIxHZvgexdFtqxzkOk5OTcK78ITd+NBRJahamVISgZ8xzeYIaye1ibycQg1UEq2B+6k8LHKWlXx4UtemcxWniZPqXJFNEL4MW8Qg4RXj5M+jkYrRRdGSrAwT1/ZpJzVTg9XrUez54sG5eWLrF3FS1WeAzAk0byL9DBsPz+hHrObdXugb7h/JpBHK2vSmDaSZU0XXrftRiMSMp/3bnilLtdDye4Lp8NoCERiKqsrNmsdilvmyCdD7wMPrT/zwNq69YunL/fNNe8PnyAde8sqVEhirwAidUOWLpOU6Yg4whIvmgpWRKcSoS7a4DGxZHnZsWraGqcqkWmfUNjwp3+kh0JdADN+6r0VSijr7u5y7Tgxm1LpkhqQ0BXyEWJCwLr3nzGaas/L++n3gRJ/HNtuQN04d0N+WwVcJW9cicuLnE64skOIQ1WNngETlB1audoYBI=
+  file_glob: true
+  file:
+  - appear.in-meeting-room-helper-*.crx
+  - appear.in-meeting-room-helper-*.zip
+  on:
+    repo: treffynnon/appear-in-helper-browser-extension
