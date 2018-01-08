@@ -9,6 +9,7 @@ cache:
     - ".awcache"
 before_install:
   - openssl aes-256-cbc -K $encrypted_6b2bcd0551e1_key -iv $encrypted_6b2bcd0551e1_iv -in key.pem.enc -out key.pem -d
+  - ls -l /home/travis/build/treffynnon/appear-in-helper-browser-extension
 install: yarn
 script: yarn build
 deploy:
