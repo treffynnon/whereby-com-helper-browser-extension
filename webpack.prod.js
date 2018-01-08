@@ -40,6 +40,7 @@ module.exports = merge(common, {
           console.log(chalk.green(`Build complete: ${dest}`));
         } catch (e) {
           console.error(chalk.red(e.message));
+          console.error(e);
           process.exit(2);
         }
       }
