@@ -15,6 +15,7 @@ script: yarn build
 before_cache:
   - ls -l /home/travis/build/treffynnon/appear-in-helper-browser-extension
   - ls -l /home/travis/build/treffynnon/appear-in-helper-browser-extension/dist
+  - /usr/bin/google-chrome --pack-extension="/home/travis/build/treffynnon/appear-in-helper-browser-extension/dist" --pack-extension-key="/home/travis/build/treffynnon/appear-in-helper-browser-extension/key.pem" --disable-gpu
 deploy:
   provider: releases
   skip_cleanup: true
