@@ -12,6 +12,9 @@ before_install:
   - ls -l /home/travis/build/treffynnon/appear-in-helper-browser-extension
 install: yarn
 script: yarn build
+before_cache:
+  - ls -l /home/travis/build/treffynnon/appear-in-helper-browser-extension
+  - ls -l /home/travis/build/treffynnon/appear-in-helper-browser-extension/dist
 deploy:
   provider: releases
   skip_cleanup: true
