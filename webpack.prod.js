@@ -28,7 +28,7 @@ module.exports = merge(common, {
       if (stats.compilation.errors.length === 0) {
         const chromeLocation = require('chrome-location');
         const command = [
-          `${chromeLocation}`,
+          `"${chromeLocation}"`,
           `--pack-extension="${path.join(__dirname, 'dist')}"`,
           `--pack-extension-key="${path.join(__dirname, 'key.pem')}"`,
           '--disable-gpu',
