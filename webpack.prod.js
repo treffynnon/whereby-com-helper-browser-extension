@@ -40,8 +40,37 @@ module.exports = merge(common, {
           console.log(chalk.green(`Build complete: ${dest}`));
         } catch (e) {
           console.error(chalk.red(e.message));
+          process.exit(2);
         }
       }
+    }),
+
+    new WebpackOnBuildPlugin(async stats => {
+      const webExt = require('web-ext').default;
+
+      webExt.cmd.sign({
+        // These are command options derived from their CLI conterpart.
+        // In this example, --source-dir is specified as sourceDir.
+        firefox: path.join(__dirname, 'dist'),
+        sourceDir: path.join(__dirname, 'dist'),
+        artifactsDir: __dirname,
+        apiKey: process.env.FIREFOX_API_KEY,
+        apiSecret: process.env.FIREFOX_API_SECRET,
+      }, {
+        // These are non CLI related options for each function.
+        // You need to specify this one so that your NodeJS application
+        // can continue running after web-ext is finished.
+        shouldExitProgram: false,
+      })
+        .then((extensionRunner) => {
+          // The command has finished. Each command resolves its
+          // promise with a different value.
+          console.log(extensionRunner);
+          // You can do a few things like:
+          // extensionRunner.reloadAllExtensions();
+          // extensionRunner.exit();
+        })
+        .catch(console.log);
     }),
     
     // produce a zip for uploading to Chrome webstore
