@@ -8,3 +8,4 @@ yarn-error.log
 *.zip
 /run_build.sh
 /web-ext-artifacts
+artifacts

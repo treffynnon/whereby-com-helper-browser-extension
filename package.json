@@ -16,7 +16,6 @@
     "@types/text-encoding": "^0.0.32",
     "awesome-typescript-loader": "^3.4.1",
     "chalk": "^2.3.0",
-    "chrome-location": "^1.2.1",
     "copy-webpack-plugin": "^4.2.3",
     "css-loader": "^0.28.7",
     "html-loader": "^0.5.1",

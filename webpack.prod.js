@@ -11,6 +11,11 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ZipPlugin = require('zip-webpack-plugin');
 const common = require('./webpack.common.js');
 
+const BASE_DIR = __dirname;
+const DIST_DIR = path.join(BASE_DIR, 'dist');
+const ARTIFACTS_DIR = path.join(BASE_DIR, 'artifacts');
+const CHROME_DOCKER_NAME = 'treffynnon/alpine-chrome-extension-pack';
+
 module.exports = merge(common, {
   devtool: 'source-map',
   plugins: [
@@ -26,17 +31,10 @@ module.exports = merge(common, {
     // CRX file
     new WebpackOnBuildPlugin(async stats => {
       if (stats.compilation.errors.length === 0) {
-        const chromeLocation = require('chrome-location');
-        const command = [
-          `"${chromeLocation}"`,
-          `--pack-extension="${path.join(__dirname, 'dist')}"`,
-          `--pack-extension-key="${path.join(__dirname, 'key.pem')}"`,
-          '--disable-gpu',
-        ].join(' ');
         try {
-          await exec(command);
-          const dest = path.join(__dirname, `appear.in-meeting-room-helper-${process.env.npm_package_version}.crx`);
-          await mv(path.join(__dirname, 'dist.crx'), dest);
+          await exec(`${path.join(BASE_DIR, 'build-tools/chrome-pack.sh')} ${BASE_DIR}`);
+          const dest = path.join(ARTIFACTS_DIR, `appear.in-meeting-room-helper-${process.env.npm_package_version}.crx`);
+          await mv(path.join(BASE_DIR, 'dist.crx'), dest);
           console.log(chalk.green(`Build complete: ${dest}`));
         } catch (e) {
           console.error(chalk.red(e.message));
@@ -71,13 +69,13 @@ module.exports = merge(common, {
           // extensionRunner.reloadAllExtensions();
           // extensionRunner.exit();
         })
-        .catch(console.log);
+        .catch(console.error);
     }),
     
     // produce a zip for uploading to Chrome webstore
     new ZipPlugin({
-      path: '../',
-      filename: path.join(__dirname, `appear.in-meeting-room-helper-${process.env.npm_package_version}.zip`),
+      path: ARTIFACTS_DIR,
+      filename: `appear.in-meeting-room-helper-${process.env.npm_package_version}.zip`,
     }),
   ],
 });
