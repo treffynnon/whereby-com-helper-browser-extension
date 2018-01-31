@@ -1,22 +1,22 @@
 import { navigateToRoom } from './utils/redirect';
 import { getSettings } from './utils/settings';
-const loc = new URL(window.location.href);
 
-const has = (url: URL, param: string) =>
-  url.searchParams.has(param) && url.searchParams.get(param) === 'off';
+sessionStorage.removeItem('muteStatus');
 
 getSettings()
   .then(settings => {
     if (settings.applyToAllMeetingUrls
         || settings.applyToAllMeetingUrls === undefined) {
-      const urlDefects = [
-        settings.audio && !has(loc, 'audio'),
-        !settings.audio && has(loc, 'audio'),
-        settings.video && !has(loc, 'video'),
-        !settings.video && has(loc, 'video'),
-      ];
-      if (urlDefects.filter(x => x).length > 0) {
-        navigateToRoom(loc);
+      const status = {
+        localAudioMuted: false,
+        localVideoMuted: false,
       }
+      if (settings.video) {
+        status.localVideoMuted = true;
+      }
+      if (settings.audio) {
+        status.localAudioMuted = true;
+      }
+      sessionStorage.setItem('muteStatus', JSON.stringify(status));
     }
   });
