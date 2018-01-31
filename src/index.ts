@@ -10,7 +10,7 @@ getSettings()
       const status = {
         localAudioMuted: false,
         localVideoMuted: false,
-      }
+      };
       if (settings.video) {
         status.localVideoMuted = true;
       }

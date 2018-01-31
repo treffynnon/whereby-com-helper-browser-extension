@@ -50,18 +50,18 @@ module.exports = merge(common, {
       webExt.cmd.sign({
         // These are command options derived from their CLI conterpart.
         // In this example, --source-dir is specified as sourceDir.
-        firefox: path.join(__dirname, 'dist'),
-        sourceDir: path.join(__dirname, 'dist'),
-        artifactsDir: __dirname,
         apiKey: process.env.FIREFOX_API_KEY,
         apiSecret: process.env.FIREFOX_API_SECRET,
+        artifactsDir: __dirname,
+        firefox: path.join(__dirname, 'dist'),
+        sourceDir: path.join(__dirname, 'dist'),
       }, {
         // These are non CLI related options for each function.
         // You need to specify this one so that your NodeJS application
         // can continue running after web-ext is finished.
         shouldExitProgram: false,
       })
-        .then((extensionRunner) => {
+        .then( extensionRunner => {
           // The command has finished. Each command resolves its
           // promise with a different value.
           console.log(extensionRunner);
@@ -71,11 +71,11 @@ module.exports = merge(common, {
         })
         .catch(console.error);
     }),
-    
+
     // produce a zip for uploading to Chrome webstore
     new ZipPlugin({
-      path: ARTIFACTS_DIR,
       filename: `appear.in-meeting-room-helper-${process.env.npm_package_version}.zip`,
+      path: ARTIFACTS_DIR,
     }),
   ],
 });
