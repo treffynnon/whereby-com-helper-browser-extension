@@ -44,7 +44,7 @@ module.exports = merge(common, {
       }
     }),
 
-    new WebpackOnBuildPlugin(async stats => {
+    /*new WebpackOnBuildPlugin(async stats => {
       const webExt = require('web-ext').default;
 
       webExt.cmd.sign({
@@ -70,7 +70,7 @@ module.exports = merge(common, {
           // extensionRunner.exit();
         })
         .catch(console.error);
-    }),
+    }),*/
 
     // produce a zip for uploading to Chrome webstore
     new ZipPlugin({
