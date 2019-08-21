@@ -33,7 +33,7 @@ module.exports = merge(common, {
       if (stats.compilation.errors.length === 0) {
         try {
           await exec(`${path.join(BASE_DIR, 'build-tools/chrome-pack.sh')} ${BASE_DIR}`);
-          const dest = path.join(ARTIFACTS_DIR, `appear.in-meeting-room-helper-${process.env.npm_package_version}.crx`);
+          const dest = path.join(ARTIFACTS_DIR, `whereby.com-meeting-room-helper-${process.env.npm_package_version}.crx`);
           await mv(path.join(BASE_DIR, 'dist.crx'), dest);
           console.log(chalk.green(`Build complete: ${dest}`));
         } catch (e) {
@@ -74,7 +74,7 @@ module.exports = merge(common, {
 
     // produce a zip for uploading to Chrome webstore
     new ZipPlugin({
-      filename: `appear.in-meeting-room-helper-${process.env.npm_package_version}.zip`,
+      filename: `whereby.com-meeting-room-helper-${process.env.npm_package_version}.zip`,
       path: ARTIFACTS_DIR,
     }),
   ],

@@ -1,4 +1,4 @@
-import { buildAppearInUrl } from '../utils/appear.in';
+import { buildWhereByUrl } from '../utils/whereby';
 import { navigateToRoom } from '../utils/redirect';
 import * as store from '../utils/store';
 
@@ -9,7 +9,7 @@ const loadRoomList = async (ul: HTMLUListElement): Promise<HTMLUListElement> => 
     data.roomList.forEach(x => {
       const li = document.createElement('li');
       const a = document.createElement('a');
-      a.href = buildAppearInUrl(x);
+      a.href = buildWhereByUrl(x);
       a.innerText = x;
       li.appendChild(a);
       ul.appendChild(li);

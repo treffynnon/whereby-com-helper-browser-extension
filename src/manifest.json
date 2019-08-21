@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "appear.in meeting room helper",
+  "name": "whereby.com (previously appear.in) meeting room helper",
   "description": "",
   "version": "0.0.0",
   "icons": {
@@ -15,11 +15,11 @@
   "browser_action": {
     "default_icon": "icons/19.png",
     "default_popup": "popup/index.html",
-    "default_title": "appear.in meeting room helper"
+    "default_title": "whereby.com (previously appear.in) meeting room helper"
   },
   "content_scripts": [
     {
-      "matches": ["https://appear.in/*"],
+      "matches": ["https://whereby.com/*", "https://appear.in/*"],
       "js": ["js/vendor.js", "js/index.js"]
     }
   ],
@@ -29,5 +29,5 @@
   },
   "permissions": [
     "storage"
-  ]  
+  ]
 }

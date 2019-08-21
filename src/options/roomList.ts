@@ -1,4 +1,4 @@
-import { appearInUriToRoomName, isAppearInUri } from '../utils/appear.in';
+import { whereByUriToRoomName, isWhereByUri } from '../utils/whereby';
 import * as list from '../utils/list';
 import * as store from '../utils/store';
 import { isAbsoluteUri } from '../utils/uri';
@@ -7,10 +7,10 @@ const myRoomsFieldId = 'my-rooms';
 
 const cleanRoom = (room: string): string => {
   const r = room.trim();
-  if (isAbsoluteUri(r) && !isAppearInUri(r)) {
+  if (isAbsoluteUri(r) && !isWhereByUri(r)) {
     return '';
-  } else if (isAppearInUri(r)) {
-    return appearInUriToRoomName(r);
+  } else if (isWhereByUri(r)) {
+    return whereByUriToRoomName(r);
   }
   return r;
 };

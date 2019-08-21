@@ -5,8 +5,8 @@ describe('options page tests', () => {
     it('should be able to clean a supplied list of meeting rooms', () => {
       const defaultRoomList = `
         zoo
-        https://appear.in/zoo
-        https://appear.in/example
+        https://whereby.com/zoo
+        https://whereby.com/example
         intensity
         http://example.org/danger.zone
       `;

@@ -1,9 +1,9 @@
 {
-  "name": "appear-in-meeting-room-helper-browser-extension",
-  "repository": "git@github.com:treffynnon/appear-in-helper-browser-extension.git",
+  "name": "whereby-com-meeting-room-helper-browser-extension",
+  "repository": "git@github.com:treffynnon/whereby-com-helper-browser-extension.git",
   "author": "Simon Holywell <treffynnon@php.net>",
   "version": "1.2.0",
-  "description": "Auto enter appear.in meetings muted and cam off (configurable).",
+  "description": "Auto enter whereby.com (previously appear.in) meetings muted and cam off (configurable).",
   "license": "Apache-2.0",
   "engines": {
     "node": ">=8.9.1",

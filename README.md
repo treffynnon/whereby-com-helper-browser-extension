@@ -1,6 +1,7 @@
-# appear.in meeting room helper browser extension
+# whereby.com (previously appear.in) meeting room helper browser extension
 
-This browser extension assists in the following ways in use with https://appear.in:
+This browser extension assists in the following ways in use with https://whereby.com
+(previously known as https://appear.in):
 
 * Allows you to configure defaults when entering a room
     * Camera off
@@ -27,12 +28,12 @@ and then the extension can be built:
 yarn build
 ```
 
-This produces a compiled extension file with a name like `appear.in-meeting-room-helper-x.x.x.crx`.
+This produces a compiled extension file with a name like `whereby.com-meeting-room-helper-x.x.x.crx`.
 
 ## Installing the extension
 
 Open your chrome browser and navigate to [chrome://extensions](chrome://extensions).
-Drag and drop the `appear.in-meeting-room-helper-x.x.x.crx` file onto the page and
+Drag and drop the `whereby.com-meeting-room-helper-x.x.x.crx` file onto the page and
 accept the warning.
 
 ## Developing the extension
