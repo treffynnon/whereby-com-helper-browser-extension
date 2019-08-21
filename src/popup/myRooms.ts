@@ -1,6 +1,6 @@
-import { buildWhereByUrl } from '../utils/whereby';
 import { navigateToRoom } from '../utils/redirect';
 import * as store from '../utils/store';
+import { buildWhereByUrl } from '../utils/whereby';
 
 const loadRoomList = async (ul: HTMLUListElement): Promise<HTMLUListElement> => {
   const data = await store.get(['roomList']);

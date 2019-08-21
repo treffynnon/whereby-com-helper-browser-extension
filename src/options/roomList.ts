@@ -1,7 +1,7 @@
-import { whereByUriToRoomName, isWhereByUri } from '../utils/whereby';
 import * as list from '../utils/list';
 import * as store from '../utils/store';
 import { isAbsoluteUri } from '../utils/uri';
+import { isWhereByUri, whereByUriToRoomName } from '../utils/whereby';
 
 const myRoomsFieldId = 'my-rooms';
 
