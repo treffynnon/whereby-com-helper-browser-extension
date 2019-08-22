@@ -10,6 +10,7 @@ cache:
 before_install:
   - openssl aes-256-cbc -K $encrypted_6b2bcd0551e1_key -iv $encrypted_6b2bcd0551e1_iv -in key.pem.enc -out key.pem -d
   - ls -l /home/travis/build/treffynnon/whereby-com-helper-browser-extension
+  - docker build -t treffynnon/alpine-chrome-extension-pack ./build-tools/chrome
 install: yarn
 script: yarn build
 before_cache:
